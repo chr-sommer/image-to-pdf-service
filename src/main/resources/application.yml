@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: image-to-pdf-service
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+
+app:
+  s3:
+    bucket-name: ${APP_S3_BUCKET_NAME:pdf-conversion-artifacts}
+    region: ${APP_S3_REGION:eu-central-1}
+    endpoint: ${APP_S3_ENDPOINT:http://localhost:9000}
+    public-endpoint: ${APP_S3_PUBLIC_ENDPOINT:http://localhost:9000}
+    path-style-access: true
+    presigned-url-expiration-minutes: 15
